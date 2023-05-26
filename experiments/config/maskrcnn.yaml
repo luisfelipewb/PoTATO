@@ -1,0 +1,9 @@
+_BASE_: "../../detectron2/configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml"
+
+MODEL:
+  ROI_HEADS:
+    BATCH_SIZE_PER_IMAGE: 128
+    NUM_CLASSES: 1
+    # SCORE_THRESH_TEST
+  MASK_ON: False
+

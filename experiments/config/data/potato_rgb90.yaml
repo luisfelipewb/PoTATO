@@ -1,0 +1,16 @@
+# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+# Example usage: python train.py --data flow.yaml
+# parent
+# ├── yolov5
+# └── datasets
+#     └── flow
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: ../datasets/potato
+train: train_rgb90.txt
+val: val_rgb90.txt
+test: test_rgb90.txt
+
+# Classes
+names:
+  0: bottle  

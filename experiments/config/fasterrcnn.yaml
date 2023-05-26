@@ -1,0 +1,8 @@
+_BASE_: "../../detectron2/configs/COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml"
+
+MODEL:
+  ROI_HEADS:
+    BATCH_SIZE_PER_IMAGE: 128
+    NUM_CLASSES: 1
+
+
