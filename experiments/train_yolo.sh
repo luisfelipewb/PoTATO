@@ -1,11 +1,11 @@
 #!/bin/bash
 
 CFG='yolov5m.yaml'
-EPOCHS=1000
+EPOCHS=100
 BATCH_SIZE=8
 IMGSZ="1224"
 DEVICE=1
-PROJECT='runs/yolo'
+PROJECT='runs/yolo_100'
 
 
 # train.py [-h] [--weights WEIGHTS] [--cfg CFG] [--data DATA] [--hyp HYP] [--epochs EPOCHS] [--batch-size BATCH_SIZE] [--imgsz IMGSZ]
@@ -76,4 +76,29 @@ WEIGHTS='yolov5m.pt'
 train
 WEIGHTS="$PROJECT/$NAME/weights/best.pt"
 NAME='potato_pol_test'
+test
+
+NAME='potato_rgbdif'
+DATA='./config/data/potato_rgbdif.yaml'
+WEIGHTS='yolov5m.pt'
+train
+WEIGHTS="$PROJECT/$NAME/weights/best.pt"
+NAME='potato_rgbdif_test'
+test
+
+NAME='potato_mono'
+DATA='./config/data/potato_mono.yaml'
+WEIGHTS='yolov5m.pt'
+train
+WEIGHTS="$PROJECT/$NAME/weights/best.pt"
+NAME='potato_mono_test'
+test
+
+
+NAME='potato_dolp'
+DATA='./config/data/potato_dolp.yaml'
+WEIGHTS='yolov5m.pt'
+train
+WEIGHTS="$PROJECT/$NAME/weights/best.pt"
+NAME='potato_dolp_test'
 test

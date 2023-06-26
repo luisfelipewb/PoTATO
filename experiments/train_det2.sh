@@ -5,17 +5,16 @@ mkdir -p ./runs/
 
 CONFIG_FILES=(
 "./config/fasterrcnn.yaml"
-"./config/maskrcnn.yaml"
+# "./config/maskrcnn.yaml"
 "./config/retinanet.yaml"
 )
 TAGS=(
 "rgb"
 "pol"
-# "mono"
+"mono"
+"rgbdif"
+"dolp"
 # "rgb90"
-# "rgbdif"
-# "dolp"
-# "flow"
 )
 
 DEVICE='cuda:1'

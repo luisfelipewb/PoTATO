@@ -5,8 +5,8 @@ SOLVER:
   BASE_LR: 1e-3           # Base learning rate
   GAMMA: 0.5              # Learning rate decay
   # STEPS: (600, 900)
-  STEPS: (20000, 40000)  # Iterations at which to decay learning rate
-  MAX_ITER: 50000          # 2000/8 -> 250 iterations for one epoch 200 epochs
+  STEPS: (10000, 20000)  # Iterations at which to decay learning rate
+  MAX_ITER: 25000          # 2000/8 -> 250 iterations for one epoch 100 epochs
   WARMUP_ITERS: 250       # Warmup iterations to linearly ramp learning rate from zero
   IMS_PER_BATCH: 8       # Lower to reduce memory usage (1 is the lowest)
 
