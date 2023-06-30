@@ -759,9 +759,12 @@ def fix_yolo_detection(ann_file, det_file):
         # print(old_id, "->", new_id)
 
     # Store a new detection in the JSON file.
-    new_name = os.path.join("output/",os.path.basename(det_file))
-    print(f"Output:\t{new_name}")
-    with open(new_name, 'w') as f:
+    directory, filename = os.path.split(det_file)
+    name, extension = os.path.splitext(filename)
+    new_name = name + "_fixed" + extension
+    new_path = os.path.join(directory, new_name)
+    print(f"Output:\t{new_path}")
+    with open(new_path, 'w') as f:
             json.dump(yolo_det, f)
 
 

@@ -17,7 +17,7 @@ TAGS=(
 # "rgb90"
 )
 
-DEVICE='cuda:1'
+DEVICE='cuda:0'
 
 
 ANN_FOLDER="../datasets/potato/split_seq"

@@ -3,9 +3,10 @@ from pycocotools.cocoeval import COCOeval
 import csv
 import yaml
 from yaml.loader import SafeLoader
+import os
 
 
-def load_all_experiments(path='./input/experiments.yaml'):
+def load_all_experiments(path='./experiments.yaml'):
     """
     Load ground-truth and detection results from a YAML file that specifies multiple experiments.
 
@@ -74,7 +75,7 @@ def evaluate(cocoGt, cocoDt):
     """
     cocoEval = COCOeval(cocoGt,cocoDt,'bbox')
 
-    cocoEval.params.maxDets=[1, 5, 10]
+    #cocoEval.params.maxDets=[1, 5, 10]
     cocoEval.params.useCats = 0
     # cocoEval.params.iouThrs = iou_thresholds
     
@@ -147,6 +148,8 @@ def generate_coco_metrics_csv(metrics, path='output/metrics.csv'):
     - ARl: average recall for large objects (area >= 96^2 pixels)
     """
 
+    directory, _ = os.path.split(path)
+    os.makedirs(directory, exist_ok=True)
     with open(path, mode="w", newline="") as csv_file:
         writer = csv.writer(csv_file)
 
