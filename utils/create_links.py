@@ -5,9 +5,9 @@ import argparse
 
 def parse_args():
     parser = argparse.ArgumentParser(description='SFOD implementation')
-    parser.add_argument('-i','--input_file', help='Path to the file with image names', default='/home/GPU/lwolfbat/local_storage/kingfisher-trash/datasets/potato/test.txt')
+    parser.add_argument('-i','--input_file', help='Path to the file with image names', default='../datasets/potato/test.txt')
     parser.add_argument('-o','--output_folder', help='Path to the folder where the links will be created', default='./input/test_images')
-    parser.add_argument('-g','--image_folder', help='Path to the folder containing the images', default='/home/GPU/lwolfbat/local_storage/kingfisher-trash/datasets/potato/images')
+    parser.add_argument('-g','--image_folder', help='Path to the folder containing the images', default='/../datasets/potato/images')
 
     # parser.add_argument('-c','--cs_thresh', help='Confidence Score Threshold', default=0.5, type=float)
 

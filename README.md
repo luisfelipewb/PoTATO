@@ -4,9 +4,21 @@
 
 The PoTATO dataset contains more than 12k labeled plastic bottles with RAW polarimetric and color images.
 
-![TODO: Add GIF](image.jpg)
+### Example bottles in the dataset
+![](img/samples.png)
 
-![TODO: Add image](image.jpg)
+### Extracted Channels
+![](img/exp05_frame042538_tile.png)
+
+### Detection using YOLOv5
+![](img/detection_sequence.gif)
+
+### Filtering reflection
+|![](./img/exp02_frame00609.gif) | ![](./img/exp04_frame01602.gif) |
+|:------------------------------:|:-------------------------------:|
+### RGB and POL
+|![](./img/exp06_frame025619.gif) | ![](./img/exp07_frame022868.gif) |
+|:-------------------------------:|:----------------------------:|
 
 This repository contains the scripts and code related to the paper "[TODO: Add link](https://www.example.com)". The code provided here enables the reproduction of the experiments described in the paper.
 
@@ -19,7 +31,7 @@ git clone https://github.com/luisfelipewb/PoTATO.git
 2. Download the PoTATO dataset:
 ```bash
 cd ./datasets
-wget link-to-dataset
+wget link-to-dataset (TODO)
 ```
 
 3. Extract the images from the RAW data (This might take a while and will need 25GB space). The imagess will be generated in the same folder as the raw files:
@@ -29,7 +41,7 @@ python3 utils/extract_from_raw.py datasets/potato/images_raw/
 
 4. Place images in the correct folder:
 ```bash
-images_raw -> images as expected by YOLOv5
+mv images_raw images
 ```
 
 5. Install YOLO-v5:
