@@ -3,9 +3,5 @@ yolov5
 detectron2
 
 # Other folders and files
-bkp_experiments
-multi_modal_od
-aishwarya_experiments
-multi_modal_OD
-
-
+runs
+*.pt

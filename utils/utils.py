@@ -623,10 +623,13 @@ def get_image_token(coco_ann, image_id):
 
     return image_token
 
-def get_image_path(path="../potato/images/", token="exp01_frame00342_", ext="pol"):
+def get_image_path(path="../datasets/potato/images/", token="exp01_frame00342_", ext="pol"):
 
     image_path = os.path.join(path, token+"_"+ext+".png")
     # TODO: test if image exists
+    if os.path.exists(image_path) is False:
+        print(f"ERROR: Could not find image {image_path}")
+
     return image_path
 
 
@@ -657,7 +660,7 @@ def crop_image(full_img, ann, size=100, show_label=False):
 
 def save_images(boxes, img_token, exts):
 
-    output_dir = "./output/imgs"
+    output_dir = "./output/crop_bbox"
     os.makedirs(output_dir, exist_ok=True)
 
     for index, ext in enumerate(exts):
@@ -667,8 +670,8 @@ def save_images(boxes, img_token, exts):
 
 
 def crop_bbox():
-    exts = ["rgb", "rgb90", "rgbdif", "mono", "dolp", "pol"]
-    ann_folder = "../potato/coco_splits/"
+    exts = [ "mono", "rgb", "rgbdif", "dolp", "pol", "pauli"]
+    ann_folder = "../datasets/potato/coco_splits/"
     ann_file = os.path.join(ann_folder, "result.json")
     size = 100
 
@@ -699,7 +702,7 @@ def crop_bbox():
         h, w, _ = np.shape(tile)
         tile = cv2.resize(tile, (w*4, h*4), interpolation = cv2.INTER_NEAREST)
 
-        # print("DEBUG",np.shape(tile))
+        print("DEBUG",np.shape(tile))
         cv2.imshow('image',tile)
 
         k = cv2.waitKey(0) & 0xFF

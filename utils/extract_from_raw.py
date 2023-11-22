@@ -5,44 +5,71 @@ import argparse
 from pimage_lib import pimage as pi
 import threading
 import time
+import matplotlib.pyplot as plt
 
-THREADS = 20
+
+THREADS = 24
 
 def process_image(img_raw, dir, token):
     """ Convert raw images and stores into files
     """
-    img_rgb, _, img_rgb_dif, img_mono, img_dolp_mono, img_pol_mono = pi.extractLake(img_raw)
-    # img_rgb, img_rgb_90, img_rgb_dif, img_mono, img_dolp_mono, img_pol_mono = pi.extractLake(img_raw)
+    img_mono, img_rgb, img_rgb_dif, img_dolp_mono, img_pol_mono, img_pauli = pi.extractPotato(img_raw)
+    # val_stokes_mono, img_stokes, val_dolp_mono, img_dolp_mono, val_aolp_mono, img_aolp = pi.extractCoreModalities(img_raw)
 
-    # Save image outputs        
-    cv2.imwrite(os.path.join(dir,token+"_dolp.png"), img_dolp_mono)
-    cv2.imwrite(os.path.join(dir,token+"_rgb.png"), img_rgb)
+    # Save image outputs
     cv2.imwrite(os.path.join(dir,token+"_mono.png"), img_mono)
+    cv2.imwrite(os.path.join(dir,token+"_rgb.png"), img_rgb)
     cv2.imwrite(os.path.join(dir,token+"_rgbdif.png"), img_rgb_dif)
+    cv2.imwrite(os.path.join(dir,token+"_dolp.png"), img_dolp_mono)
     cv2.imwrite(os.path.join(dir,token+"_pol.png"), img_pol_mono)
+    cv2.imwrite(os.path.join(dir,token+"_pauli.png"), img_pauli)
 
-    # # # Full tile 
+    # Show image using cv2
+    # cv2.imshow("MONO", img_mono)
+    # cv2.imshow("RGB", img_rgb)
+    # cv2.imshow("RGBDIF", img_rgb_dif)
+    # cv2.imshow("DoLP", img_dolp_mono)
+    # cv2.imshow("POL", img_pol_mono)
+    # cv2.imshow("PAULI", img_pauli)
+    # cv2.waitKey(0)
+
+    # convert the histogram to plot in matplotlib and save to a file
+    # plt.plot(dolp_hist)
+    # plt.savefig(os.path.join(dir,token+"_dolp_hist.png"))
+
+    # dolp_filter = (np.ones_like(img_rgb).astype(np.float32))
+    # dolp_filter[:,:,0] -= val_dolp_mono
+    # dolp_filter[:,:,1] -= val_dolp_mono
+    # dolp_filter[:,:,2] -= val_dolp_mono
+
+    # img_noref =  (dolp_filter * img_rgb).round().astype(np.uint8)
+    # cv2.imwrite(os.path.join(dir,token+"_noref.png"), img_noref)
+
+    # # # Full tile
     # # Expand images with a single channel
-    # img_mono3 = cv2.cvtColor(img_mono, cv2.COLOR_GRAY2BGR)
+    img_mono3 = cv2.cvtColor(img_mono, cv2.COLOR_GRAY2BGR)
     # img_dolp3 = cv2.cvtColor(img_dolp_mono, cv2.COLOR_GRAY2BGR)
-    
+
     # # Label images
-    # cv2.putText(img_rgb, "RGB", (100,100), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 0, 255), 4)
-    # cv2.putText(img_rgb_90, "RGB90", (100,100), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 0, 255), 4)
-    # cv2.putText(img_rgb_dif, "Diffuse", (100,100), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 0, 255), 4)
-    # cv2.putText(img_mono3, "Gray", (100,100), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 0, 255), 4)
-    # cv2.putText(img_dolp3, "DoLP", (100,100), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 0, 255), 4)
-    # cv2.putText(img_pol_mono, "DoLP and AoLP", (100,100), cv2.FONT_HERSHEY_SIMPLEX, 4, (255, 255, 255), 4)
+    cv2.putText(img_mono3, "MONO", (100,150), cv2.FONT_HERSHEY_SIMPLEX, 4, (0, 0, 255), 5)
+    cv2.putText(img_rgb, "RGB", (100,150), cv2.FONT_HERSHEY_SIMPLEX, 4, (0, 0, 255), 5)
+    cv2.putText(img_rgb_dif, "DIF", (100,150), cv2.FONT_HERSHEY_SIMPLEX, 4, (0, 0, 255), 5)
+    cv2.putText(img_dolp_mono, "DOLP", (100,150), cv2.FONT_HERSHEY_SIMPLEX, 4, (255, 255, 255), 5)
+    cv2.putText(img_pol_mono, "POL", (100,150), cv2.FONT_HERSHEY_SIMPLEX, 4, (255, 255, 255), 5)
+    cv2.putText(img_pauli, "PAULI", (100,150), cv2.FONT_HERSHEY_SIMPLEX, 4, (0, 0, 255), 5)
 
     # # Small tile (2 images)
     # stile = cv2.hconcat([img_rgb, img_pol_mono])
     # cv2.imwrite(os.path.join(dir, token+"_stile.jpg"), stile)
 
     # # Large tile (6 images)
-    # top_tile = cv2.hconcat([img_rgb, img_rgb_90, img_rgb_dif])
-    # bot_tile = cv2.hconcat([img_mono3, img_dolp3, img_pol_mono])
-    # ltile = cv2.vconcat([top_tile, bot_tile])
-    # cv2.imwrite(os.path.join(dir, token+"_ltile.jpg"), ltile)
+    # single_tile = cv2.hconcat([img_rgb, img_dolp3, img_noref])
+    top_tile = cv2.hconcat([img_mono3, img_rgb, img_rgb_dif])
+    bot_tile = cv2.hconcat([img_dolp_mono, img_pol_mono, img_pauli])
+    ltile = cv2.vconcat([top_tile, bot_tile])
+    cv2.imwrite(os.path.join(dir, token+"_ltile.jpg"), ltile)
+    # cv2.imwrite(os.path.join(dir, token+"_stile.jpg"), single_tile)
+
 
 
 def producer(filenames, img_dir, buffer, mutex, finished):
@@ -61,7 +88,7 @@ def producer(filenames, img_dir, buffer, mutex, finished):
 
     finished.set()
     print("Finished loading all images")
-    
+
     return
 
 
@@ -97,7 +124,7 @@ def consumer(buffer, mutex, finished):
 def run(args):
     """ Get file list and manage threads.
     """
-    img_dir = args.img_dir
+    img_dir = args.directory
 
     # Get a list of files containing the "_raw" tag
     filenames = []
@@ -109,7 +136,7 @@ def run(args):
     buffer = []
     mutex = threading.Lock()
     finished = threading.Event()
-    
+
     prod = threading.Thread(target=producer, args=(filenames, img_dir, buffer, mutex, finished))
 
     # Start all threads
@@ -131,12 +158,13 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description="Extract data from folder with raw images.")
 
-    parser.add_argument("img_dir", help="Image directory.")
+    #option argument
+    parser.add_argument("-d", "--directory", help="Image directory.", type=str, default="./utils/input/small_test/")
 
     args = parser.parse_args()
 
-    if os.path.isdir(args.img_dir) is False:
-        print("Directory", args.dir,"does not exists")
+    if os.path.isdir(args.directory) is False:
+        print("Directory", args.directory,"does not exists")
         quit()
 
     run(args)

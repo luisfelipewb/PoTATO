@@ -14,7 +14,7 @@ TAGS=(
 "mono"
 "rgbdif"
 "dolp"
-# "rgb90"
+"pauli"
 )
 
 DEVICE='cuda:0'

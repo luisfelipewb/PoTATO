@@ -69,7 +69,6 @@ WEIGHTS="$PROJECT/$NAME/weights/best.pt"
 NAME='potato_rgb_test'
 test
 
-
 NAME='potato_pol'
 DATA='./config/data/potato_pol.yaml'
 WEIGHTS='yolov5m.pt'
@@ -94,11 +93,18 @@ WEIGHTS="$PROJECT/$NAME/weights/best.pt"
 NAME='potato_mono_test'
 test
 
-
 NAME='potato_dolp'
 DATA='./config/data/potato_dolp.yaml'
 WEIGHTS='yolov5m.pt'
 train
 WEIGHTS="$PROJECT/$NAME/weights/best.pt"
 NAME='potato_dolp_test'
+test
+
+NAME='potato_pauli'
+DATA='./config/data/potato_pauli.yaml'
+WEIGHTS='yolov5m.pt'
+train
+WEIGHTS="$PROJECT/$NAME/weights/best.pt"
+NAME='potato_pauli_test'
 test
