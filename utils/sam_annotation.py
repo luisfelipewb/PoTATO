@@ -6,9 +6,9 @@ from ultralytics.models.sam import Predictor as SAMPredictor
 overrides = dict(conf=0.25, task='segment', mode='predict', imgsz=1024, model="sam_b.pt", save=False)
 predictor = SAMPredictor(overrides=overrides)
 
-label_dir = "/home/GPU/lwolfbat/local_storage/kingfisher-trash/datasets/potato/labels/"
-filename_base_path = "/home/GPU/lwolfbat/local_storage/kingfisher-trash/datasets/potato/"
-data_dir = "/home/GPU/lwolfbat/local_storage/kingfisher-trash/datasets/potato/images/"
+label_dir = "../datasets/potato/labels/"
+filename_base_path = "../datasets/potato/"
+data_dir = "../datasets/potato/images/"
 
 filename_list = ["test.txt", "train.txt", "val.txt"]
 
