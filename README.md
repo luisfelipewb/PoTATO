@@ -31,7 +31,7 @@ This repository contains the scripts and code for the paper [TODO](https://www.e
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/luisfelipewb/PoTATO.git
+git clone https://github.com/xxx/xxx.git
 ```
 
 
