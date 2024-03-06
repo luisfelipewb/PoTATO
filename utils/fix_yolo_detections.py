@@ -13,7 +13,7 @@ if __name__ == '__main__':
     input_files=["potato_dolp_test", "potato_mono_test", "potato_pol_test", "potato_rgbdif_test", "potato_rgb_test", "potato_pauli_test"]
 
     for det_file in input_files:
-        det_dir = os.path.join('../experiments/runs/cvpr/yolo_100/',det_file)
+        det_dir = os.path.join('../experiments/runs/eccv/yolo_100/',det_file)
         det_path = os.path.join(det_dir, "best_predictions.json")
         utils.fix_yolo_detection(ann_path, det_path)
         print()

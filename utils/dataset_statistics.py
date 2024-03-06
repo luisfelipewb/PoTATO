@@ -146,12 +146,14 @@ def plot_log2(trn_bboxes, val_bboxes, tst_bboxes):
     bboxes = [trn_bboxes, val_bboxes, tst_bboxes]
     labels = ['Train', 'Validation', 'Test']
 
+    plt.rcParams['figure.dpi'] = 600
+    plt.rcParams['savefig.dpi'] = 600
 
     fig, ax = plt.subplots(1)
     # fig.suptitle(title)
     fig.tight_layout()
     fig.set_figheight(2)
-    fig.set_figwidth(6)
+    fig.set_figwidth(8)
 
     logbins = np.logspace(start=np.log2(2), stop=np.log2(32768), num=70, base=2)
 

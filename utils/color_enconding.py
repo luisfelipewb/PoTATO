@@ -3,6 +3,10 @@ import numpy as np
 import colorsys
 import matplotlib as mpl
 
+plt.rcParams['figure.dpi'] = 600
+plt.rcParams['savefig.dpi'] = 600
+
+
 cmaps = {}
 
 hot = np.linspace(0.0, 1.0, 256)
@@ -25,7 +29,7 @@ def plot_color_bars():
     rgb_values_hot = [cmap(h) for h in hot_values]
 
     # Create figure and axis
-    fig, ax = plt.subplots(1, 2, figsize=(10, 1.2))
+    fig, ax = plt.subplots(2, 1, figsize=(5, 2.5))
 
     # Plot the HSV color bar
     ax[0].bar(hsv_values, np.ones_like(hsv_values), color=rgb_values_hsv, width=1)
@@ -47,7 +51,7 @@ def plot_color_bars():
 
     # Display the plot
     plt.tight_layout()
-    path='./output/color_encoding.jpg'
+    path='./output/color_encoding.png'
     plt.savefig(path)
 
 
