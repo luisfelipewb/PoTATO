@@ -30,15 +30,15 @@ ___
 
 
 ## Steps for reproducing the experiments
-This repository contains the scripts and code for the paper [TODO](https://www.example.com), enabling the replication of the described experiments and fostering research reproducibility
+This repository contains the scripts and code for the paper [PoTATO: A Dataset for Analyzing Polarimetric
+Traces of Afloat Trash Objects](https://www.example.com), enabling the replication of the described experiments and fostering research reproducibility
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/xxx/xxx.git
+git clone https://github.com/luisfelipewb/PoTATO/tree/eccv2024
 ```
 
-
-2. Download the PoTATO dataset from [dataset link](tbd):
+2. Download the PoTATO dataset from [dataset link]([tbd](https://gtvault-my.sharepoint.com/:f:/g/personal/lbatista3_gatech_edu/EsRU8LnjkXZLl7bPbMqJfaIBeoxbfD2TiiFrRObZuYtFZA?e=0O4YQ3)):
 ```bash
 mv ~/Downloads/potato.tgz ./datasets
 cd ./datasets && tar -xzvf potato.tgz
@@ -98,5 +98,15 @@ python3 coco_metrics.py
 The results will be avaiable in `utils/output/metrics.csv`
 
 Please cite the paper when using the dataset or code
+```bibtex
+@article{tbd,
+  title={PoTATO: A Dataset for Analyzing Polarimetric Traces of Afloat Trash Objects},
+  author={L. F. W. Batista et al.},
+  journal={TBD},
+  year={2024}
+}
+
+
+```
 
 
