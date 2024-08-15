@@ -16,6 +16,9 @@ ___
 Example of bottle images and the different channels that can be extracted.
 
 ![](img/samples.jpg)
+
+Bottles used in the experiment.
+![](img/bottles.jpeg)
 ___
 
 ### Detection Example
