@@ -272,12 +272,12 @@ def show_all_detections(ground_truth, detections, img_id, img_dir = '../datasets
 if __name__ == "__main__":
 
     coco_gt = COCO(annotation_file='../datasets/potato/split_seq/test_rgb.json')
-    coco_det_mono = coco_gt.loadRes("../experiments/runs/cvpr/det2_100/fasterrcnn_mono/test/coco_instances_results.json")
-    coco_det_rgb = coco_gt.loadRes("../experiments/runs/cvpr/det2_100/fasterrcnn_rgb/test/coco_instances_results.json")
-    coco_det_dif = coco_gt.loadRes("../experiments/runs/cvpr/det2_100/fasterrcnn_rgbdif/test/coco_instances_results.json")
-    coco_det_dolp = coco_gt.loadRes("../experiments/runs/cvpr/det2_100/fasterrcnn_dolp/test/coco_instances_results.json")
-    coco_det_pol = coco_gt.loadRes("../experiments/runs/cvpr/det2_100/fasterrcnn_pol/test/coco_instances_results.json")
-    coco_det_pauli = coco_gt.loadRes("../experiments/runs/cvpr/det2_100/fasterrcnn_pauli/test/coco_instances_results.json")
+    coco_det_mono = coco_gt.loadRes("../experiments/runs/det2_100/fasterrcnn_mono/test/coco_instances_results.json")
+    coco_det_rgb = coco_gt.loadRes("../experiments/runs/det2_100/fasterrcnn_rgb/test/coco_instances_results.json")
+    coco_det_dif = coco_gt.loadRes("../experiments/runs/det2_100/fasterrcnn_rgbdif/test/coco_instances_results.json")
+    coco_det_dolp = coco_gt.loadRes("../experiments/runs/det2_100/fasterrcnn_dolp/test/coco_instances_results.json")
+    coco_det_pol = coco_gt.loadRes("../experiments/runs/det2_100/fasterrcnn_pol/test/coco_instances_results.json")
+    coco_det_pauli = coco_gt.loadRes("../experiments/runs/det2_100/fasterrcnn_pauli/test/coco_instances_results.json")
 
     coco_eval_mono = COCOeval(coco_gt, coco_det_mono, 'bbox')
     coco_eval_rgb = COCOeval(coco_gt, coco_det_rgb, 'bbox')

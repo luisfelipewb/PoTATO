@@ -4,7 +4,7 @@ CFG='yolov5m.yaml'
 EPOCHS=100
 BATCH_SIZE=8
 IMGSZ="1224"
-DEVICE=1
+DEVICE=0
 PROJECT='runs/yolo_100'
 
 
