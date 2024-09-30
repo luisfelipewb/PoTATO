@@ -1,6 +1,8 @@
 # PoTATO - A Dataset for Analyzing Polarimetric Traces of Afloat Trash Objects
 
 ## Description 
+This repository contains the scripts and code for the paper [PoTATO: A Dataset for Analyzing Polarimetric
+Traces of Afloat Trash Objects](https://arxiv.org/abs/2409.12659) presented during the [ECCV24 TRICKY workshop](https://sites.google.com/view/eccv24-tricky-workshop/#h.h0s7c37d7fmm). It allows for easy replication of the experiments and supports research reproducibility.
 
 The PoTATO dataset contains more than 12k labeled plastic bottles with RAW polarimetric and color images.
 
@@ -30,15 +32,13 @@ ___
 
 
 ## Steps for reproducing the experiments
-This repository contains the scripts and code for the paper [PoTATO: A Dataset for Analyzing Polarimetric
-Traces of Afloat Trash Objects](https://www.example.com), enabling the replication of the described experiments and fostering research reproducibility
 
 1. Clone this repository:
 ```bash
 git clone https://github.com/luisfelipewb/PoTATO/tree/eccv2024
 ```
 
-2. Download the PoTATO dataset from [dataset link](https://gtvault-my.sharepoint.com/:f:/g/personal/lbatista3_gatech_edu/EsRU8LnjkXZLl7bPbMqJfaIBeoxbfD2TiiFrRObZuYtFZA?e=0O4YQ3):
+2. Download the PoTATO dataset from [dataset link](https://gtvault-my.sharepoint.com/:f:/g/personal/lbatista3_gatech_edu/EsRU8LnjkXZLl7bPbMqJfaIBIaKVCaSlDyo6ZC_BisbLsw?e=QrcWvj):
 ```bash
 mv ~/Downloads/potato.tgz ./datasets
 cd ./datasets && tar -xzvf potato.tgz
@@ -93,11 +93,14 @@ The results will be avaiable in `utils/output/metrics.csv`
 
 Please cite the paper when using the dataset or code
 ```bibtex
-@article{tbd,
-  title={PoTATO: A Dataset for Analyzing Polarimetric Traces of Afloat Trash Objects},
-  author={L. F. W. Batista et al.},
-  journal={TBD},
-  year={2024}
+@misc{batista2024potatodatasetanalyzingpolarimetric,
+      title={PoTATO: A Dataset for Analyzing Polarimetric Traces of Afloat Trash Objects}, 
+      author={Luis Felipe Wolf Batista and Salim Khazem and Mehran Adibi and Seth Hutchinson and Cedric Pradalier},
+      year={2024},
+      eprint={2409.12659},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2409.12659}, 
 }
 
 
