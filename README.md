@@ -38,7 +38,7 @@ ___
 git clone https://github.com/luisfelipewb/PoTATO/tree/eccv2024
 ```
 
-2. Download the PoTATO dataset from [dataset link](https://gtvault-my.sharepoint.com/:f:/g/personal/lbatista3_gatech_edu/EsRU8LnjkXZLl7bPbMqJfaIBIaKVCaSlDyo6ZC_BisbLsw?e=QrcWvj):
+2. Download the PoTATO dataset from [dataset link](https://gtvault-my.sharepoint.com/:f:/g/personal/lbatista3_gatech_edu/EsRU8LnjkXZLl7bPbMqJfaIB9YAZCJw5lEy6VplUfn8WnQ?e=x9P1Hm):
 ```bash
 mv ~/Downloads/potato.tgz ./datasets
 cd ./datasets && tar -xzvf potato.tgz
@@ -93,17 +93,17 @@ The results will be avaiable in `utils/output/metrics.csv`
 
 Please cite the paper when using the dataset or code
 ```bibtex
-@misc{batista2024potatodatasetanalyzingpolarimetric,
-      title={PoTATO: A Dataset for Analyzing Polarimetric Traces of Afloat Trash Objects}, 
-      author={Luis Felipe Wolf Batista and Salim Khazem and Mehran Adibi and Seth Hutchinson and Cedric Pradalier},
-      year={2024},
-      eprint={2409.12659},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2409.12659}, 
+@inproceedings{batista2024potato,
+      title={PoTATO: A Dataset for Analyzing Polarimetric Traces of Afloat Trash Objects},
+      author={Batista, Luis F. W. and Khazem, Salim and Adibi, Mehran and Hutchinson, Seth and Pradalier, Cedric},
+      year={2025},
+      editor={Del Bue, Alessio and Canton, Cristian and Pont-Tuset, Jordi and Tommasi, Tatiana},
+      booktitle={Computer Vision -- ECCV 2024 Workshops},
+      publisher={Springer Nature Switzerland},
+      address={Cham},
+      pages={190--205},
+      isbn={978-3-031-91569-7}
 }
-
-
 ```
 
 
