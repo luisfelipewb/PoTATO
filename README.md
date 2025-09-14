@@ -38,7 +38,7 @@ ___
 git clone https://github.com/luisfelipewb/PoTATO/tree/eccv2024
 ```
 
-2. Download the PoTATO dataset from [dataset link](https://gtvault-my.sharepoint.com/:f:/g/personal/lbatista3_gatech_edu/EsRU8LnjkXZLl7bPbMqJfaIB9YAZCJw5lEy6VplUfn8WnQ?e=x9P1Hm):
+2. Download the PoTATO dataset from [dataset link](https://zenodo.org/records/17117218):
 ```bash
 mv ~/Downloads/potato.tgz ./datasets
 cd ./datasets && tar -xzvf potato.tgz
